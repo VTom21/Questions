@@ -1,0 +1,430 @@
+<!doctype html>
+<html lang="hu">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <title>Teszt</title>
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+
+        .progress-bar {
+            transition: width 0.4s;
+        }
+
+        .card-header {
+            font-weight: bold;
+            background-color: #007bff;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container mt-5">
+        <h1 class="text-center mb-4">Online Teszt</h1>
+        <p class="text-center text-muted">Válaszd ki a helyes válaszokat, majd küldd el a tesztet!</p>
+
+        <div class="progress mb-4">
+            <div class="progress-bar progress-bar-striped progress-bar-animated" id="progress-bar" role="progressbar"
+                aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%"></div>
+        </div>
+
+        <form id="quiz-form">
+            <div class="row">
+                <!-- 1. HTML kérdés -->
+                <div class="col-md-6 mb-3">
+                    <div class="card">
+                        <div class="card-header">1. Mi a jelentése a &lt;meta&gt; elemnek?</div>
+                        <div class="card-body">
+                            <div>
+                                <input type="radio" name="q1" value="0" id="q1-a">
+                                <label for="q1-a">Kép</label>
+                            </div>
+                            <div>
+                                <input type="radio" name="q1" value="1" id="q1-b">
+                                <label for="q1-b">Információ</label>
+                            </div>
+                            <div>
+                                <input type="radio" name="q1" value="0" id="q1-c">
+                                <label for="q1-c">Tartalom</label>
+                            </div>
+                            <div>
+                                <input type="radio" name="q1" value="0" id="q1-d">
+                                <label for="q1-d">Hivatkozás</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 2. HTML kérdés -->
+                <div class="col-md-6 mb-3">
+                    <div class="card">
+                        <div class="card-header">2. Mi a különbség a &lt;head&gt; és a &lt;body&gt; között?</div>
+                        <div class="card-body">
+                            <div>
+                                <input type="radio" name="q2" value="1" id="q2-a">
+                                <label for="q2-a">Fejléc</label>
+                            </div>
+                            <div>
+                                <input type="radio" name="q2" value="0" id="q2-b">
+                                <label for="q2-b">Tartalom</label>
+                            </div>
+                            <div>
+                                <input type="radio" name="q2" value="0" id="q2-c">
+                                <label for="q2-c">Stílus</label>
+                            </div>
+                            <div>
+                                <input type="radio" name="q2" value="0" id="q2-d">
+                                <label for="q2-c">Script</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 3. HTML kérdés -->
+                <div class="col-md-6 mb-3">
+                    <div class="card">
+                        <div class="card-header">3. Mi az a data-* attribútum?</div>
+                        <div class="card-body">
+                            <div>
+                                <input type="radio" name="q3" value="1" id="q3-a">
+                                <label for="q3-a">Adattárolás</label>
+                            </div>
+                            <div>
+                                <input type="radio" name="q3" value="0" id="q3-b">
+                                <label for="q3-b">Stílus</label>
+                            </div>
+                            <div>
+                                <input type="radio" name="q3" value="0" id="q3-c">
+                                <label for="q3-c">Hivatkozás</label>
+                            </div>
+                            <div>
+                                <input type="radio" name="q3" value="0" id="q3-d">
+                                <label for="q3-c">Szűrés</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 4. HTML kérdés -->
+                <div class="col-md-6 mb-3">
+                    <div class="card">
+                        <div class="card-header">4. Mi a célja az alt attribútumnak a &lt;img&gt; tag-ban?</div>
+                        <div class="card-body">
+                            <div>
+                                <input type="radio" name="q4" value="1" id="q4-a">
+                                <label for="q4-a">Leírás</label>
+                            </div>
+                            <div>
+                                <input type="radio" name="q4" value="0" id="q4-b">
+                                <label for="q4-b">Képformátum</label>
+                            </div>
+                            <div>
+                                <input type="radio" name="q4" value="0" id="q4-c">
+                                <label for="q4-c">Kép méret</label>
+                            </div>
+                            <div>
+                                <input type="radio" name="q4" value="0" id="q4-d">
+                                <label for="q4-c">Kép elrendezés</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 5. HTML kérdés -->
+                <div class="col-md-6 mb-3">
+                    <div class="card">
+                        <div class="card-header">5. Mi az a &lt;nav&gt; elem?</div>
+                        <div class="card-body">
+                            <div>
+                                <input type="radio" name="q5" value="0" id="q5-a">
+                                <label for="q5-a">Stílus</label>
+                            </div>
+                            <div>
+                                <input type="radio" name="q5" value="1" id="q5-b">
+                                <label for="q5-b">Navigáció</label>
+                            </div>
+                            <div>
+                                <input type="radio" name="q5" value="0" id="q5-c">
+                                <label for="q5-c">Form</label>
+                            </div>
+                            <div>
+                                <input type="radio" name="q5" value="0" id="q5-d">
+                                <label for="q5-c">Fejléc</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 6. CSS kérdés -->
+                <div class="col-md-6 mb-3">
+                    <div class="card">
+                        <div class="card-header">6. Mi a Flexbox fő célja?</div>
+                        <div class="card-body">
+                            <div>
+                                <input type="radio" name="q6" value="0" id="q6-a">
+                                <label for="q6-a">Animáció</label>
+                            </div>
+                            <div>
+                                <input type="radio" name="q6" value="1" id="q6-b">
+                                <label for="q6-b">Elrendezés</label>
+                            </div>
+                            <div>
+                                <input type="radio" name="q6" value="0" id="q6-c">
+                                <label for="q6-c">Stílus</label>
+                            </div>
+                            <div>
+                                <input type="radio" name="q6" value="0" id="q6-d">
+                                <label for="q6-c">Hálózat</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 7. CSS kérdés -->
+                <div class="col-md-6 mb-3">
+                    <div class="card">
+                        <div class="card-header">7. Mi a z-index szerepe a CSS-ben?</div>
+                        <div class="card-body">
+                            <div>
+                                <input type="radio" name="q7" value="0" id="q7-a">
+                                <label for="q7-a">Méret</label>
+                            </div>
+                            <div>
+                                <input type="radio" name="q7" value="0" id="q7-b">
+                                <label for="q7-b">Háttér</label>
+                            </div>
+                            <div>
+                                <input type="radio" name="q7" value="1" id="q7-c">
+                                <label for="q7-c">Rétegek</label>
+                            </div>
+                            <div>
+                                <input type="radio" name="q7" value="0" id="q7-d">
+                                <label for="q7-c">Betűtípus</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 8. CSS kérdés -->
+                <div class="col-md-6 mb-3">
+                    <div class="card">
+                        <div class="card-header">8. Mi a CSS Grid?</div>
+                        <div class="card-body">
+                            <div>
+                                <input type="radio" name="q8" value="0" id="q8-a">
+                                <label for="q7-a">Színkezelés</label>
+                            </div>
+                            <div>
+                                <input type="radio" name="q8" value="1" id="q8-b">
+                                <label for="q7-b">Rács</label>
+                            </div>
+                            <div>
+                                <input type="radio" name="q8" value="0" id="q8-c">
+                                <label for="q7-c">Képek</label>
+                            </div>
+                            <div>
+                                <input type="radio" name="q8" value="0" id="q8-d">
+                                <label for="q7-c">Korlátok</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 9. CSS kérdés -->
+                <div class="col-md-6 mb-3">
+                    <div class="card">
+                        <div class="card-header">9. Mi a @media szabály szerepe?</div>
+                        <div class="card-body">
+                            <div>
+                                <input type="radio" name="q9" value="0" id="q9-a">
+                                <label for="q7-a">Stílus</label>
+                            </div>
+                            <div>
+                                <input type="radio" name="q9" value="1" id="q9-b">
+                                <label for="q7-b">Reszponzivitás</label>
+                            </div>
+                            <div>
+                                <input type="radio" name="q9" value="0" id="q9-c">
+                                <label for="q7-c">Animáció</label>
+                            </div>
+                            <div>
+                                <input type="radio" name="q9" value="0" id="q9-d">
+                                <label for="q7-c">Magas kontraszt</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 10. JavaScript kérdés -->
+                <div class="col-md-6 mb-3">
+                    <div class="card">
+                        <div class="card-header">10. Mi a DOM?</div>
+                        <div class="card-body">
+                            <div>
+                                <input type="radio" name="q10" value="1" id="q10-a">
+                                <label for="q10-a">Dokumentum Objektum Modell</label>
+                            </div>
+                            <div>
+                                <input type="radio" name="q10" value="0" id="q10-b">
+                                <label for="q10-b">Data Object Method</label>
+                            </div>
+                            <div>
+                                <input type="radio" name="q10" value="0" id="q10-c">
+                                <label for="q10-c">Dynamic Object Manipulation</label>
+                            </div>
+                            <div>
+                                <input type="radio" name="q10" value="0" id="q10-d">
+                                <label for="q10-d">Data Optimized Model</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 11. JavaScript kérdés -->
+                <div class="col-md-6 mb-3">
+                    <div class="card">
+                        <div class="card-header">11. Mi a @keyframes szerepe?</div>
+                        <div class="card-body">
+                            <div>
+                                <input type="radio" name="q11" value="0" id="q11-a">
+                                <label for="q11-a">Állapotok animálása</label>
+                            </div>
+                            <div>
+                                <input type="radio" name="q11" value="1" id="q11-b">
+                                <label for="q11-b">Animáció létrehozása</label>
+                            </div>
+                            <div>
+                                <input type="radio" name="q11" value="0" id="q11-c">
+                                <label for="q11-c">Szövegformázás</label>
+                            </div>
+                            <div>
+                                <input type="radio" name="q11" value="0" id="q11-d">
+                                <label for="q11-d">Szegélyek kezelése</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 12. JavaScript kérdés -->
+                <div class="col-md-6 mb-3">
+                    <div class="card">
+                        <div class="card-header">12. Mi a null?</div>
+                        <div class="card-body">
+                            <div>
+                                <input type="radio" name="q12" value="0" id="q12-a">
+                                <label for="q12-a">Végtelen</label>
+                            </div>
+                            <div>
+                                <input type="radio" name="q12" value="1" id="q12-b">
+                                <label for="q12-b">Üres</label>
+                            </div>
+                            <div>
+                                <input type="radio" name="q12" value="0" id="q12-c">
+                                <label for="q12-c">Nem definiált</label>
+                            </div>
+                            <div>
+                                <input type="radio" name="q12" value="0" id="q12-d">
+                                <label for="q12-d">Hiba</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 13. JavaScript kérdés -->
+                <div class="col-md-6 mb-3">
+                    <div class="card">
+                        <div class="card-header">13. Mi az a Bootstrap?</div>
+                        <div class="card-body">
+                            <div>
+                                <input type="radio" name="q13" value="0" id="q13-a">
+                                <label for="q13-a">Képformátum</label>
+                            </div>
+                            <div>
+                                <input type="radio" name="q13" value="1" id="q13-b">
+                                <label for="q13-b">Webes keretrendszer</label>
+                            </div>
+                            <div>
+                                <input type="radio" name="q13" value="0" id="q13-c">
+                                <label for="q13-c">Képszerkesztő</label>
+                            </div>
+                            <div>
+                                <input type="radio" name="q13" value="0" id="q13-d">
+                                <label for="q13-d">Stílustáblázat</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 14. JavaScript kérdés -->
+                <div class="col-md-6 mb-3">
+                    <div class="card">
+                        <div class="card-header">14. Mi a JavaScript változó neve?</div>
+                        <div class="card-body">
+                            <div>
+                                <input type="radio" name="q14" value="1" id="q14-a">
+                                <label for="q14-a">Számérték</label>
+                            </div>
+                            <div>
+                                <input type="radio" name="q14" value="0" id="q14-b">
+                                <label for="q14-b">Változó típusa</label>
+                            </div>
+                            <div>
+                                <input type="radio" name="q14" value="0" id="q14-c">
+                                <label for="q14-c">Funkció neve</label>
+                            </div>
+                            <div>
+                                <input type="radio" name="q14" value="0" id="q14-d">
+                                <label for="q14-d">Számított érték</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 15. JavaScript kérdés -->
+                <div class="col-md-6 mb-3">
+                    <div class="card">
+                        <div class="card-header">15. Mi a window.onload esemény?</div>
+                        <div class="card-body">
+                            <div>
+                                <input type="radio" name="q15" value="0" id="q15-a">
+                                <label for="q15-a">Eseményvezérlés</label>
+                            </div>
+                            <div>
+                                <input type="radio" name="q15" value="1" id="q15-b">
+                                <label for="q15-b">Az oldal betöltése</label>
+                            </div>
+                            <div>
+                                <input type="radio" name="q15" value="0" id="q15-c">
+                                <label for="q15-c">Weboldal URL</label>
+                            </div>
+                            <div>
+                                <input type="radio" name="q15" value="0" id="q15-d">
+                                <label for="q15-d">Böngésző bezárása</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <button type="submit" id="submit-btn" class="btn btn-primary w-100 mt-3" disabled>Kiértékelés</button>
+        </form>
+
+        <div id="result" class="mt-4 text-center" style="display: none;">
+            <h2>Eredményed:</h2>
+            <p id="score"></p>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
